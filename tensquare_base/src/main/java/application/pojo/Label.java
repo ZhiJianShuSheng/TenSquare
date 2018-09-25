@@ -1,8 +1,9 @@
-package pojo;
+package application.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created by chenglong on 2018-09-24.
@@ -10,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_label")
-public class Label {
+public class Label implements Serializable {
 
     @Id
     private String id;
@@ -66,5 +67,17 @@ public class Label {
 
     public void setRecommend(String recommend) {
         this.recommend = recommend;
+    }
+
+    @Override
+    public String toString() {
+        return "Label{" +
+                "id='" + id + '\'' +
+                ", labelName='" + labelName + '\'' +
+                ", state='" + state + '\'' +
+                ", count=" + count +
+                ", recommend='" + recommend + '\'' +
+                ", fans=" + fans +
+                '}';
     }
 }

@@ -50,26 +50,9 @@
         </dependency>
     </dependencies>
 
-    <!-- 远程仓库配置 -->
-    <!--
-    <releases>
-        <enabled>
-            true
-        </enabled>
-    </releases>
-    告诉Maven可以从这个仓库下载releases版本的构件，
-    <snapshots>
-        <enabled>
-            false
-        </enabled>
-    </snapshots>
-    告诉Maven不要从这个仓库下载snapshot版本的构件。
-    禁止从公共仓库下载snapshot构件是推荐的做法，因为这些构件不稳定，且不受你控制，你应该避免使用。
-    当然，如果你想使用局域网内组织内部的仓库，你可以激活snapshot的支持
-    -->
     <repositories>
         <repository>
-            <id>spring-snapshots</id>
+            <id>spring‐snapshots</id>
             <name>Spring Snapshots</name>
             <url>https://repo.spring.io/snapshot</url>
             <snapshots>
@@ -77,7 +60,7 @@
             </snapshots>
         </repository>
         <repository>
-            <id>spring-milestones</id>
+            <id>spring‐milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
             <snapshots>
@@ -85,14 +68,9 @@
             </snapshots>
         </repository>
     </repositories>
-
-    <!--
-    至于<pluginRepositories>，这是配置Maven从什么地方下载插件构件（Maven的所有实际行为都由其插件完成）。
-    该元素的内部配置和<repository>完全一样
-    -->
     <pluginRepositories>
         <pluginRepository>
-            <id>spring-snapshots</id>
+            <id>spring‐snapshots</id>
             <name>Spring Snapshots</name>
             <url>https://repo.spring.io/snapshot</url>
             <snapshots>
@@ -100,7 +78,7 @@
             </snapshots>
         </pluginRepository>
         <pluginRepository>
-            <id>spring-milestones</id>
+            <id>spring‐milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
             <snapshots>
@@ -108,5 +86,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>

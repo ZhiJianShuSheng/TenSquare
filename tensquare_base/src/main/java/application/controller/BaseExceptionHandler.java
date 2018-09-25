@@ -1,4 +1,4 @@
-package controller;
+package application.controller;
 
 import entity.Result;
 import entity.StatusCode;
@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class BaseExceptionHandler {
 
+    /**
+    * @Description: 处理异常的方法
+    * @Param: [e]
+    * @return: entity.Result
+    */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result error(Exception e){

@@ -1,8 +1,8 @@
-package dao;
+package application.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import pojo.Label;
+import application.pojo.Label;
 
 /**
  * Created by chenglong on 2018-09-25.

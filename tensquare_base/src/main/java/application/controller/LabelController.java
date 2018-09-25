@@ -1,11 +1,11 @@
-package controller;
+package application.controller;
 
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pojo.Label;
-import service.LabelService;
+import application.pojo.Label;
+import application.service.LabelService;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class LabelController {
     /**
      * @Description: 根据id查询标签
      * @Param: [id]
-     * @return: entity.Result<pojo.Label>
+     * @return: entity.Result<application.pojo.Label>
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Result<Label> findById(@PathVariable String id) {

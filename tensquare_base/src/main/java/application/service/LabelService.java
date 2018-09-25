@@ -1,9 +1,9 @@
-package service;
+package application.service;
 
-import dao.LabelDao;
+import application.dao.LabelDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pojo.Label;
+import application.pojo.Label;
 import utils.IdWorker;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class LabelService {
     /**
      * @Description: 查询全部标签
      * @Param: []
-     * @return: java.util.List<pojo.Label>
+     * @return: java.util.List<application.pojo.Label>
      */
     public List<Label> findAll() {
         return labelDao.findAll();
@@ -33,7 +33,7 @@ public class LabelService {
     /**
      * @Description: 根据id查询标签
      * @Param: [id]
-     * @return: pojo.Label
+     * @return: application.pojo.Label
      */
     public Label findById(String id) {
         return labelDao.findById(id).get();
