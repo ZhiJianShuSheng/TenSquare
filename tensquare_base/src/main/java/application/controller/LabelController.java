@@ -1,13 +1,16 @@
 package application.controller;
 
+import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import application.pojo.Label;
 import application.service.LabelService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: tensquare_parent
@@ -68,15 +71,31 @@ public class LabelController {
     }
 
     /**
-    * @Description: 删除标签
-    * @Param: [id]
-    * @return: entity.Result
-    */
+     * @Description: 删除标签
+     * @Param: [id]
+     * @return: entity.Result
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public Result deleteById(@PathVariable String id) {
         labelService.deleteById(id);
         return new Result(true, StatusCode.OK, "删除成功");
     }
 
+    /**
+     * @Description: 条件查询
+     * @Param: [searchMap]
+     * @return: entity.Result<java.util.List>
+     */
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public Result<List> findSearch(@RequestBody Map searchMap) {
+        return new Result<>(true, StatusCode.OK, "查询成功", labelService.findSearch(searchMap));
+    }
+
+    @RequestMapping(value = "/search/{page}/{size}", method = RequestMethod.POST)
+    public Result<List> findSearch(@RequestBody Map searchMap, @PathVariable int page, @PathVariable int size) {
+        Page pageList = labelService.findSearch(searchMap, page, size);
+        return new Result(true, StatusCode.OK, "查询成功",
+                new PageResult<>(pageList.getTotalElements(), pageList.getContent()));
+    }
 
 }
